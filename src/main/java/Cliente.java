@@ -18,7 +18,6 @@ public class Cliente extends Pessoa{
     }
 
     public void setPassaporte(Passaporte passaporte) {
-        //O CLIENTE PODE NAO TER PASSAPORTE
         if(passaporte == null){
             throw new IllegalArgumentException("ERRO! Passaporte informado na funcao 'setPassaporte' do cliente nulo.");
         }

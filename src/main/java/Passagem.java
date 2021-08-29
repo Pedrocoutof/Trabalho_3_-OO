@@ -35,10 +35,6 @@ public class Passagem {
         return this.cliente;
     }
 
-    void setNullClientePassagem(){
-        this.cliente = null;
-    }
-
     public Estado getEstadoPartida(){
         return this.partida.getLocal();
     }

@@ -98,7 +98,7 @@ class AeroportoTest {
 
         cliente.setTesteCovid(true);
 
-        assertEquals(false, aeroportoDestino.verificaPassagem(passagem));
+        assertFalse(aeroportoDestino.verificaPassagem(passagem));
     }
 
     @Test
@@ -170,7 +170,7 @@ class AeroportoTest {
 
         aeroportoDestino.setAviao(aviao);
 
-        assertEquals(false, aeroportoDestino.verificaPassagem(passagem));
+        assertFalse(aeroportoDestino.verificaPassagem(passagem));
     }
 
     @Test
@@ -223,11 +223,9 @@ class AeroportoTest {
         Passaporte passaporte = new Passaporte(cliente);
         passaporte.adicionaPais(paisDestino);
 
-        assertEquals(cliente.getPassaporte(), passaporte);
-
         aeroportoPartida.setAviao(aviao);
 
-        assertEquals(paisDestino.getNomePais(), aviao.getDestino().getLocal().getPais().getNomePais());
+        assertTrue(aeroportoPartida.verificaPassagem(passagem));
     }
 
 }

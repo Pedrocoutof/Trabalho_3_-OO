@@ -30,7 +30,7 @@ public class Aeroporto {
             return false;
         }
 
-        if(passagem.getCliente().getNaturalidade().getNomePais() == aviao.getDestino().getLocal().getNomePais()){
+        if(passagem.getCliente().getNaturalidade() == aviao.getDestino().getLocal().getPais()){
             return true;
         }
 

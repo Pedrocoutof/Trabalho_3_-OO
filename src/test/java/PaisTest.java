@@ -18,4 +18,9 @@ class PaisTest {
         assertEquals(pais, pais.getPais());
     }
 
+    @Test
+    void testaGetNomePais(){
+        Pais pais = new Pais("Brasil");
+        assertEquals("Brasil", pais.getNomePais());
+    }
 }

@@ -1,21 +1,26 @@
-public class Estado extends Pais{
-    String nomeEstado;
+public class Estado{
+    private String nomeEstado;
+    private Pais pais;
+
 
     Estado(Pais pais, String nomeEstado){
-        super(pais.nomePais);
+        if(pais == null){
+            throw new IllegalArgumentException("ERRO! Pais do estado nulo.");
+        }
 
         if(nomeEstado == null){
             throw new IllegalArgumentException("ERRO! Nome do estado nulo.");
         }
+
+        this.pais = pais;
         this.nomeEstado = nomeEstado;
+    }
+
+    public Pais getPais() {
+        return pais;
     }
 
     public String getNomeEstado() {
         return this.nomeEstado;
-    }
-
-    @Override
-    public String getNomePais() {
-        return super.getNomePais();
     }
 }
