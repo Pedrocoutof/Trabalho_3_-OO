@@ -228,6 +228,35 @@ class AeroportoTest {
         assertTrue(aeroportoPartida.verificaPassagem(passagem));
     }
 
+    @Test
+    void verificaPassageirosEmbarcados(){
+        Pais paisPartida = new Pais("Brasil");
+        Pais paisDestino = new Pais("Estado Unidos");
+
+        Estado estadoPartida = new Estado(paisPartida, "Minas Gerais");
+        Estado estadoDestino = new Estado(paisDestino, "California");
+
+        Aeroporto aeroportoPartida = new Aeroporto(estadoPartida);
+        Aeroporto aeroportoDestino = new Aeroporto(estadoDestino);
+
+        Funcionario funcionario = new Funcionario("Gabriel", paisPartida, "Piloto");
+
+        Aviao aviao = new Aviao(aeroportoPartida, aeroportoDestino, funcionario);
+
+        Passagem passagem = new Passagem(aeroportoPartida, aeroportoDestino, aviao);
+
+        Cliente cliente = new Cliente("Pedro", paisPartida, passagem);
+
+        Passaporte passaporte = new Passaporte(cliente);
+        passaporte.adicionaPais(paisDestino);
+
+        aeroportoPartida.setAviao(aviao);
+
+        aeroportoPartida.embarcaPassageiro(passagem);
+
+        assertEquals(aviao.getPassageiros().get(0), passagem.getCliente());
+    }
+
 }
 /*
 

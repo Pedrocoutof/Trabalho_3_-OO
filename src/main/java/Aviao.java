@@ -67,18 +67,7 @@ public class Aviao {
             this.tremDePouso = tremDePouso;
         }
 
-        public void verificaComponentes(){
-            if(!this.tanqueCheio){
-                throw new IllegalArgumentException("ERRO! Tanque do Aviao nao esta cheio!");
-            }
-
-            if(!this.tremDePouso){
-                throw new IllegalArgumentException("ERRO! Trem de Pouso do Aviao esta com defeito!");
-            }
-        }
-
         public boolean getIntegridadeDoAviao(){
-
             if(tanqueCheio && tremDePouso) {
                 return true;
             }

@@ -77,4 +77,66 @@ class AviaoTest {
             assertEquals("Funcionario informado no aviao nao e piloto.", e.getMessage());
         }
     }
+
+    @Test
+    void testaIntegridadeDoAviaoComDefeitoTremDePouso(){
+        Pais paisPartida = new Pais("Brasil");
+        Pais paisDestino = new Pais("Estado Unidos");
+
+        Estado estadoPartida = new Estado(paisPartida, "Minas Gerais");
+        Estado estadoDestino = new Estado(paisDestino, "California");
+
+        Aeroporto aeroportoPartida = new Aeroporto(estadoPartida);
+        Aeroporto aeroportoDestino = new Aeroporto(estadoDestino);
+
+        Funcionario funcionario = new Funcionario("Pedro", paisDestino, "Piloto");
+
+        Aviao aviao = new Aviao(aeroportoPartida, aeroportoDestino, funcionario);
+
+        aviao.getIntegridadeAviao().setTremDePouso(false);
+        aviao.getIntegridadeAviao().setTanqueCheio(true);
+
+        assertFalse(aviao.getIntegridadeAviao().getIntegridadeDoAviao());
+    }
+    @Test
+    void testaIntegridadeDoAviaoComTanqueVazio(){
+        Pais paisPartida = new Pais("Brasil");
+        Pais paisDestino = new Pais("Estado Unidos");
+
+        Estado estadoPartida = new Estado(paisPartida, "Minas Gerais");
+        Estado estadoDestino = new Estado(paisDestino, "California");
+
+        Aeroporto aeroportoPartida = new Aeroporto(estadoPartida);
+        Aeroporto aeroportoDestino = new Aeroporto(estadoDestino);
+
+        Funcionario funcionario = new Funcionario("Pedro", paisDestino, "Piloto");
+
+        Aviao aviao = new Aviao(aeroportoPartida, aeroportoDestino, funcionario);
+
+        aviao.getIntegridadeAviao().setTremDePouso(true);
+        aviao.getIntegridadeAviao().setTanqueCheio(false);
+
+        assertFalse(aviao.getIntegridadeAviao().getIntegridadeDoAviao());
+    }
+
+    @Test
+    void testaIntegridadeDoAviaoSemDefeito(){
+        Pais paisPartida = new Pais("Brasil");
+        Pais paisDestino = new Pais("Estado Unidos");
+
+        Estado estadoPartida = new Estado(paisPartida, "Minas Gerais");
+        Estado estadoDestino = new Estado(paisDestino, "California");
+
+        Aeroporto aeroportoPartida = new Aeroporto(estadoPartida);
+        Aeroporto aeroportoDestino = new Aeroporto(estadoDestino);
+
+        Funcionario funcionario = new Funcionario("Pedro", paisDestino, "Piloto");
+
+        Aviao aviao = new Aviao(aeroportoPartida, aeroportoDestino, funcionario);
+
+        aviao.getIntegridadeAviao().setTremDePouso(true);
+        aviao.getIntegridadeAviao().setTanqueCheio(true);
+
+        assertTrue(aviao.getIntegridadeAviao().getIntegridadeDoAviao());
+    }
 }

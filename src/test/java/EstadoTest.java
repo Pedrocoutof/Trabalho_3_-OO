@@ -4,6 +4,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class EstadoTest {
     @Test
+    void testaPaisNull(){
+        try{
+            Estado estado = new Estado(null, "Minas Gerais");
+        }catch(IllegalArgumentException e){
+            assertEquals("ERRO! Pais do estado nulo.", e.getMessage());
+        }
+    }
+
+    @Test
     void testaNomeEstadoNull(){
         Pais pais = new Pais("Brasil");
 
