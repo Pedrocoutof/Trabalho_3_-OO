@@ -6,7 +6,7 @@ public class Aviao {
     private Aeroporto destino;
     private Funcionario piloto;
     private List<Cliente> passageiros;
-    // private final int LOTACAO_MAX = 3; //Valor baixo para facilar o teste do limite
+    private IntegridadeAviao integridadeAviao;
 
     Aviao(Aeroporto partida, Aeroporto destino, Funcionario piloto){
         if (partida == null) {
@@ -27,6 +27,7 @@ public class Aviao {
         this.partida = partida;
         this.destino = destino;
         this.passageiros = new ArrayList<Cliente>();
+        this.integridadeAviao = new IntegridadeAviao(this);
     }
 
     public Aeroporto getPartida() {
@@ -41,13 +42,47 @@ public class Aviao {
         return this.passageiros;
     }
 
-    /*
-     public int getLOTACAO_MAX() {
-        return LOTACAO_MAX;
-    }
-    */
-
     public void adicionaPassageiro(Cliente cliente){
         this.passageiros.add(cliente);
+    }
+
+    public IntegridadeAviao getIntegridadeAviao() {
+        return this.integridadeAviao;
+    }
+
+    public class IntegridadeAviao{
+        private boolean tanqueCheio;
+        private boolean tremDePouso;
+
+        IntegridadeAviao(Aviao aviao){     // inner class
+            tanqueCheio = false;
+            tremDePouso = false;
+        }
+
+        public void setTanqueCheio(boolean tanqueCheio) {
+            this.tanqueCheio = tanqueCheio;
+        }
+
+        public void setTremDePouso(boolean tremDePouso) {
+            this.tremDePouso = tremDePouso;
+        }
+
+        public void verificaComponentes(){
+            if(!this.tanqueCheio){
+                throw new IllegalArgumentException("ERRO! Tanque do Aviao nao esta cheio!");
+            }
+
+            if(!this.tremDePouso){
+                throw new IllegalArgumentException("ERRO! Trem de Pouso do Aviao esta com defeito!");
+            }
+        }
+
+        public boolean getIntegridadeDoAviao(){
+
+            if(tanqueCheio && tremDePouso) {
+                return true;
+            }
+            return false;
+        }
     }
 }

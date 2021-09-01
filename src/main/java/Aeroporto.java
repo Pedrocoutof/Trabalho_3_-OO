@@ -1,5 +1,6 @@
 public class Aeroporto {
 
+    public Meteorologia meteorologia;
     private Estado local;
     private Aviao aviao;
 
@@ -7,7 +8,9 @@ public class Aeroporto {
         if(local == null){
             throw new IllegalArgumentException("ERRO! Local do aeroporto nulo.");
         }
+
         this.local = local;
+        this.meteorologia = new Meteorologia(this);
     }
 
     public void setAviao(Aviao aviao) {
@@ -21,11 +24,7 @@ public class Aeroporto {
         if(passagem == null){
             throw new IllegalArgumentException("ERRO! Passagem informada no aeroporto nula.");
         }
-/*
-        if(aviao.getLOTACAO_MAX() < aviao.getPassageiros().size()){
-            return false;
-        }
-*/
+
         if(passagem.getCliente().getTesteCovid()){
             return false;
         }
@@ -50,5 +49,34 @@ public class Aeroporto {
 
     public Estado getLocal() {
         return this.local;
+    }
+
+    public Meteorologia getMeteorologia() {
+        return this.meteorologia;
+    }
+
+    public class Meteorologia{
+        private boolean visibilidade;
+        private boolean condicaoDeVoo;
+
+        Meteorologia(Aeroporto aeroporto){
+            visibilidade = false;
+            condicaoDeVoo = false;
+        }
+
+        public void setCondicaoDeVoo(boolean condicaoDeVoo) {
+            this.condicaoDeVoo = condicaoDeVoo;
+        }
+
+        public void setVisibilidade(boolean visibilidade) {
+            this.visibilidade = visibilidade;
+        }
+
+        public boolean getPossibilidadeVoo(){
+            if(visibilidade || condicaoDeVoo){
+                return true;
+            }
+            return false;
+        }
     }
 }
