@@ -73,7 +73,7 @@ public class Aeroporto {
         }
 
         public boolean getPossibilidadeVoo(){
-            if(visibilidade || condicaoDeVoo){
+            if(visibilidade && condicaoDeVoo){
                 return true;
             }
             return false;

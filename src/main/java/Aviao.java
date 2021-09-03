@@ -6,7 +6,8 @@ public class Aviao {
     private Aeroporto destino;
     private Funcionario piloto;
     private List<Cliente> passageiros;
-    private IntegridadeAviao integridadeAviao;
+    private boolean tanqueCheio;
+    private boolean condicaoMotor;
 
     Aviao(Aeroporto partida, Aeroporto destino, Funcionario piloto){
         if (partida == null) {
@@ -27,7 +28,23 @@ public class Aviao {
         this.partida = partida;
         this.destino = destino;
         this.passageiros = new ArrayList<Cliente>();
-        this.integridadeAviao = new IntegridadeAviao(this);
+        this.condicaoMotor = false;
+        this.tanqueCheio = false;
+    }
+
+    public void setTanqueCheio(boolean tanqueCheio) {
+        this.tanqueCheio = tanqueCheio;
+    }
+
+    public void setCondicaoMotor(boolean condicaoMotor) {
+        this.condicaoMotor = condicaoMotor;
+    }
+
+    public boolean verificaPossibilidadeVoo(){
+        if(this.tanqueCheio && this.condicaoMotor)
+            return  true;
+
+        return false;
     }
 
     public Aeroporto getPartida() {
@@ -44,34 +61,5 @@ public class Aviao {
 
     public void adicionaPassageiro(Cliente cliente){
         this.passageiros.add(cliente);
-    }
-
-    public IntegridadeAviao getIntegridadeAviao() {
-        return this.integridadeAviao;
-    }
-
-    public class IntegridadeAviao{
-        private boolean tanqueCheio;
-        private boolean tremDePouso;
-
-        IntegridadeAviao(Aviao aviao){     // inner class
-            tanqueCheio = false;
-            tremDePouso = false;
-        }
-
-        public void setTanqueCheio(boolean tanqueCheio) {
-            this.tanqueCheio = tanqueCheio;
-        }
-
-        public void setTremDePouso(boolean tremDePouso) {
-            this.tremDePouso = tremDePouso;
-        }
-
-        public boolean getIntegridadeDoAviao(){
-            if(tanqueCheio && tremDePouso) {
-                return true;
-            }
-            return false;
-        }
     }
 }

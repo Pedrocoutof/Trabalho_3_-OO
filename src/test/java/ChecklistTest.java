@@ -115,7 +115,7 @@ class ChecklistTest {
         try{
             Checklist checklist = new Checklist(aeroportoPartida.getMeteorologia(), aeroportoDestino.getMeteorologia(), aviao);
         }catch(IllegalArgumentException e){
-            assertEquals("Voo NAO aprovado pelo departamento de meteorologia aeroporto de destino", e.getMessage());
+            assertEquals("Voo NAO aprovado pelo departamento de meteorologia do aeroporto de partida", e.getMessage());
         }
     }
 
@@ -141,13 +141,13 @@ class ChecklistTest {
         aeroportoDestino.getMeteorologia().setVisibilidade(false);
         aeroportoDestino.getMeteorologia().setCondicaoDeVoo(true);
 
-        aviao.getIntegridadeAviao().setTremDePouso(true);
-        aviao.getIntegridadeAviao().setTanqueCheio(true);
+        aviao.setCondicaoMotor(true);
+        aviao.setTanqueCheio(true);
 
         try{
             Checklist checklist = new Checklist(aeroportoPartida.getMeteorologia(), aeroportoDestino.getMeteorologia(), aviao);
         }catch(IllegalArgumentException e){
-            assertEquals("Voo NAO aprovado pelo departamento de meteorologia", e.getMessage());
+            assertEquals("Voo NAO aprovado pelo departamento de meteorologia aeroporto de destino", e.getMessage());
         }
     }
 
@@ -173,13 +173,13 @@ class ChecklistTest {
         aeroportoDestino.getMeteorologia().setVisibilidade(true);
         aeroportoDestino.getMeteorologia().setCondicaoDeVoo(false);
 
-        aviao.getIntegridadeAviao().setTremDePouso(true);
-        aviao.getIntegridadeAviao().setTanqueCheio(true);
+        aviao.setCondicaoMotor(true);
+        aviao.setTanqueCheio(true);
 
         try{
             Checklist checklist = new Checklist(aeroportoPartida.getMeteorologia(), aeroportoDestino.getMeteorologia(), aviao);
         }catch(IllegalArgumentException e){
-            assertEquals("Voo NAO aprovado pelo departamento de meteorologia", e.getMessage());
+            assertEquals("Voo NAO aprovado pelo departamento de meteorologia aeroporto de destino", e.getMessage());
         }
     }
 
@@ -205,13 +205,13 @@ class ChecklistTest {
         aeroportoDestino.getMeteorologia().setVisibilidade(true);
         aeroportoDestino.getMeteorologia().setCondicaoDeVoo(true);
 
-        aviao.getIntegridadeAviao().setTremDePouso(false);
-        aviao.getIntegridadeAviao().setTanqueCheio(true);
+        aviao.setCondicaoMotor(false);
+        aviao.setTanqueCheio(true);
 
         try{
             Checklist checklist2 = new Checklist(aeroportoPartida.getMeteorologia(), aeroportoDestino.getMeteorologia(), aviao);
         }catch(IllegalArgumentException e){
-            assertEquals("Aviao SEM condicao de voo!", e.getMessage());
+            assertEquals("Aviao SEM possibilidade de voo!", e.getMessage());
         }
     }
 
@@ -237,13 +237,13 @@ class ChecklistTest {
         aeroportoDestino.getMeteorologia().setVisibilidade(true);
         aeroportoDestino.getMeteorologia().setCondicaoDeVoo(true);
 
-        aviao.getIntegridadeAviao().setTremDePouso(true);
-        aviao.getIntegridadeAviao().setTanqueCheio(false);
+        aviao.setCondicaoMotor(true);
+        aviao.setTanqueCheio(false);
 
         try{
             Checklist checklist = new Checklist(aeroportoPartida.getMeteorologia(), aeroportoDestino.getMeteorologia(), aviao);
         }catch(IllegalArgumentException e){
-            assertEquals("Aviao SEM condicao de voo!", e.getMessage());
+            assertEquals("Aviao SEM possibilidade de voo!", e.getMessage());
         }
     }
 

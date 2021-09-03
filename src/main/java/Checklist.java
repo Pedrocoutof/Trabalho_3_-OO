@@ -22,8 +22,8 @@ public class Checklist {
             throw new IllegalArgumentException("Voo NAO aprovado pelo departamento de meteorologia aeroporto de destino");
         }
 
-        if(!aviao.getIntegridadeAviao().getIntegridadeDoAviao()){
-            throw new IllegalArgumentException("Aviao SEM condicao de voo!");
+        if(!aviao.verificaPossibilidadeVoo()){
+            throw new IllegalArgumentException("Aviao SEM possibilidade de voo!");
         }
 
     }

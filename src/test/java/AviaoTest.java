@@ -93,10 +93,10 @@ class AviaoTest {
 
         Aviao aviao = new Aviao(aeroportoPartida, aeroportoDestino, funcionario);
 
-        aviao.getIntegridadeAviao().setTremDePouso(false);
-        aviao.getIntegridadeAviao().setTanqueCheio(true);
+        aviao.setCondicaoMotor(false);
+        aviao.setTanqueCheio(true);
 
-        assertFalse(aviao.getIntegridadeAviao().getIntegridadeDoAviao());
+        assertFalse(aviao.verificaPossibilidadeVoo());
     }
     @Test
     void testaIntegridadeDoAviaoComTanqueVazio(){
@@ -113,10 +113,10 @@ class AviaoTest {
 
         Aviao aviao = new Aviao(aeroportoPartida, aeroportoDestino, funcionario);
 
-        aviao.getIntegridadeAviao().setTremDePouso(true);
-        aviao.getIntegridadeAviao().setTanqueCheio(false);
+        aviao.setCondicaoMotor(true);
+        aviao.setTanqueCheio(false);
 
-        assertFalse(aviao.getIntegridadeAviao().getIntegridadeDoAviao());
+        assertFalse(aviao.verificaPossibilidadeVoo());
     }
 
     @Test
@@ -134,9 +134,9 @@ class AviaoTest {
 
         Aviao aviao = new Aviao(aeroportoPartida, aeroportoDestino, funcionario);
 
-        aviao.getIntegridadeAviao().setTremDePouso(true);
-        aviao.getIntegridadeAviao().setTanqueCheio(true);
+        aviao.setCondicaoMotor(true);
+        aviao.setTanqueCheio(true);
 
-        assertTrue(aviao.getIntegridadeAviao().getIntegridadeDoAviao());
+        assertTrue(aviao.verificaPossibilidadeVoo());
     }
 }
