@@ -1,6 +1,9 @@
+// Nome: Pedro do Couto Filgueiras - 201935015
+//       Gabriel Toledo Netto Gribel - 201976004
+
 public class Aeroporto {
 
-    public Meteorologia meteorologia;
+    private Meteorologia meteorologia;
     private Estado local;
     private Aviao aviao;
 

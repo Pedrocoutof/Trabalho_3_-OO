@@ -1,5 +1,8 @@
+// Nome: Pedro do Couto Filgueiras - 201935015
+//       Gabriel Toledo Netto Gribel - 201976004
+
 public class Pais {
-    String nomePais;
+    private String nomePais;
 
     Pais(String nomePais){
         if(nomePais == null){

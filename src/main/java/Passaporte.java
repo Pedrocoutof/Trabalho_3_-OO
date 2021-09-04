@@ -1,6 +1,9 @@
 import java.util.List;
 import java.util.ArrayList;
 
+// Nome: Pedro do Couto Filgueiras - 201935015
+//       Gabriel Toledo Netto Gribel - 201976004
+
 public class Passaporte {
     private List<Pais> paisAutorizado;
     private Cliente cliente;

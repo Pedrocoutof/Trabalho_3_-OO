@@ -1,3 +1,6 @@
+// Nome: Pedro do Couto Filgueiras - 201935015
+//       Gabriel Toledo Netto Gribel - 201976004
+
 public class Cliente extends Pessoa{
     private Passaporte passaporte;
     private Passagem passagem;
@@ -27,6 +30,5 @@ public class Cliente extends Pessoa{
     public Passaporte getPassaporte() {
         return this.passaporte;
     }
-
 
 }

@@ -1,3 +1,6 @@
+// Nome: Pedro do Couto Filgueiras - 201935015
+//       Gabriel Toledo Netto Gribel - 201976004
+
 public class Checklist {
 
     Checklist(Aeroporto.Meteorologia meteorologiaAeroportoPartida, Aeroporto.Meteorologia meteorologiaAeroportoDestino, Aviao aviao){
