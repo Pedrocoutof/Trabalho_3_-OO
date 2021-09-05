@@ -2,7 +2,6 @@
 //       Gabriel Toledo Netto Gribel - 201976004
 
 public class Aeroporto {
-
     private Meteorologia meteorologia;
     private Estado local;
     private Aviao aviao;

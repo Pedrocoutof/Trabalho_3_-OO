@@ -258,23 +258,3 @@ class AeroportoTest {
     }
 
 }
-/*
-
-    Pais paisPartida = new Pais("Brasil");
-        Pais paisDestino = new Pais("Estado Unidos");
-
-        Estado estadoPartida = new Estado(paisPartida, "Minas Gerais");
-        Estado estadoDestino = new Estado(paisDestino, "California");
-
-        Aeroporto aeroportoPartida = new Aeroporto(estadoPartida);
-        Aeroporto aeroportoDestino = new Aeroporto(estadoDestino);
-
-        Funcionario funcionario = new Funcionario("Gabriel", paisPartida, "Piloto");
-
-        Aviao aviao = new Aviao(aeroportoPartida, aeroportoDestino, funcionario);
-
-        Passagem passagem = new Passagem(aeroportoPartida, aeroportoDestino, aviao);
-
-        Cliente cliente = new Cliente("Pedro", paisPartida, passagem);
-
- */

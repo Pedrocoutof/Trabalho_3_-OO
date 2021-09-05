@@ -5,7 +5,6 @@ public class Estado{
     private String nomeEstado;
     private Pais pais;
 
-
     Estado(Pais pais, String nomeEstado){
         if(pais == null){
             throw new IllegalArgumentException("ERRO! Pais do estado nulo.");
